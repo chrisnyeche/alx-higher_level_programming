@@ -1,5 +1,13 @@
 #!/usr/bin/python3
-for i in range(122, 96, -1):
-    if i % 2 != 0:
-        i = i - 32
-    print("{}".format(chr(i)), end="")
+is_capital = False
+step = 0
+for i in range(26, 0, -1):
+    if is_capital is True:
+        letter = chr((ord('z') - step) - 32)
+        step += 1
+        is_capital = False
+    else:
+        letter = chr(ord('z') - step)
+        step += 1
+        is_capital = True
+    print("{:s}".format(letter,), end="")

@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-for character in range(97, 123):
-    if (character != 101 and character != 113):
-        print("{:c}".format(character), end='')
+number = 97
+while number <= 122:
+    if number != ord('q') and number != ord('e'):
+        print("{}".format(chr(number)), end="")
+    number += 1
