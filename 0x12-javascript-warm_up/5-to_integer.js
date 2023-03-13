@@ -1,3 +1,6 @@
 #!/usr/bin/node
-const num = Math.floor(Number(process.argv[2]));
-console.log(isNaN(num) ? 'Not a number' : `My number: ${num}`);
+
+const { argv } = require('process');
+const num = parseInt(argv[2]);
+
+console.log(Number.isInteger(num) ? `My number: ${num}` : 'Not a number');
