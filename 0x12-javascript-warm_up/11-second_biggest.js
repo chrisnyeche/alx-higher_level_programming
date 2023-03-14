@@ -1,12 +1,9 @@
 #!/usr/bin/node
-let [, , ...values] = process.argv;
-if (values.length === 0 || values.length === 1) {
+if (process.argv.length <= 3) {
   console.log(0);
 } else {
-  values = values.map(element => {
-    return parseInt(element);
-  });
-  const start = values.findIndex((value) => value === Math.max(...values));
-  values.splice(start, 1);
-  console.log(Math.max(...values));
+  const args = process.argv.map(Number)
+    .slice(2, process.argv.length)
+    .sort((a, b) => a - b);
+  console.log(args[args.length - 2]);
 }
