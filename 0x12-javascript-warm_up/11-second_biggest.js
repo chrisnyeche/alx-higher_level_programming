@@ -1,13 +1,12 @@
 #!/usr/bin/node
-
-const { argv } = require('process');
-const args = argv.slice(2);
-let result = 0;
-let finalArray = [];
-
-if (args.length > 1) {
-  finalArray = [...new Set(args.map((e) => parseInt(e)).sort((a, b) => b - a))];
-  result = finalArray.length > 1 ? finalArray[1] : finalArray[0];
+let [, , ...values] = process.argv;
+if (values.length === 0 || values.length === 1) {
+  console.log(0);
+} else {
+  values = values.map(element => {
+    return parseInt(element);
+  });
+  const start = values.findIndex((value) => value === Math.max(...values));
+  values.splice(start, 1);
+  console.log(Math.max(...values));
 }
-
-console.log(result);
